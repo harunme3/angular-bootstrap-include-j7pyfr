@@ -9,8 +9,8 @@
 -🔭- Used of Angular / typescript / javascript<br>
 
 
-<br>
-# Try to cover all possible 🙆 Error like 
+# Try to cover all possible 🙆 Error like
+
 <br>
 
 UNKNOWN: "An Unkown error  is occured",<br>
