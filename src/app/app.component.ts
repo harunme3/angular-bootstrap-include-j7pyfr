@@ -26,10 +26,12 @@ export class AppComponent {
   error;
   msg;
   errmsgs = this.errorService.errormsg;
+  weakpassword: boolean = false;
 
   alertclose() {
     this.msg = "";
     this.error = "";
+    this.weakpassword = false;
   }
 
   ngOnInit() {
@@ -72,6 +74,12 @@ export class AppComponent {
           },
           err => {
             console.log(err);
+            if (
+              err.error.error.message ==
+              "WEAK_PASSWORD : Password should be at least 6 characters"
+            ) {
+              this.weakpassword = true;
+            }
 
             if (!err.error || !err.error.error)
               this.error = this.errmsgs["UNKOWN"];
