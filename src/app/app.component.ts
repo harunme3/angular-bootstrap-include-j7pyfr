@@ -24,7 +24,13 @@ export class AppComponent {
   ) {}
 
   error;
+  msg;
   errmsgs = this.errorService.errormsg;
+
+  alertclose() {
+    this.msg = "";
+    this.error=""
+  }
 
   ngOnInit() {
     this.Form = this.fb.group({
@@ -42,28 +48,37 @@ export class AppComponent {
       const email = this.Form.value.email;
       const password = this.Form.value.password;
 
-      let authobservable: Observable<AuthRes>;
-
       if (this.loginmode) {
-        authobservable = this.SignIn(email, password);
+        this.SignIn(email, password).subscribe(
+          res => {
+            console.log(res);
+            this.error = "";
+            this.msg = "Sign in";
+          },
+          err => {
+            console.log(err);
+
+            if (!err.error || !err.error.error)
+              this.error = this.errmsgs["UNKOWN"];
+            else this.error = this.errmsgs[err.error.error.message];
+          }
+        );
       } else {
-        authobservable = this.SignUp(email, password);
+        this.SignUp(email, password).subscribe(
+          res => {
+            console.log(res);
+            this.error = "";
+            this.msg = "Created Account ";
+          },
+          err => {
+            console.log(err);
+
+            if (!err.error || !err.error.error)
+              this.error = this.errmsgs["UNKOWN"];
+            else this.error = this.errmsgs[err.error.error.message];
+          }
+        );
       }
-      authobservable.subscribe(
-        res => {
-          console.log(res);
-          this.error = "";
-            
-
-        },
-        err => {
-          console.log(err);
-
-          if (!err.error || !err.error.error)
-            this.error = this.errmsgs["UNKOWN"];
-          else this.error = this.errmsgs[err.error.error.message];
-        }
-      );
     }
   }
 
