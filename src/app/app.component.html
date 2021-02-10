@@ -1,56 +1,50 @@
 <div *ngIf="error" class="alert alert-danger m-3" role="alert">
 	<strong>An error occured</strong>{{error}}
 </div>
+
+
 <div class="login-box">
-  <h2>	{{ loginmode ?"Sign in":"Sign up"}}</h2>
-<form    [formGroup]="Form" (ngSubmit)="onSubmit()">
-	<div class="form-group">
-		<label for="exampleInputEmail1">Email address</label>
-		<input
-      type="email"
-      class="form-control"
-      formControlName="email"
-      placeholder="Enter email"
-    />
-		<small
+	<h2> {{ loginmode ?"Sign in":"Sign up"}}</h2>
+
+	<form [formGroup]="Form" (ngSubmit)="onSubmit()">
+		<div class="user-box">
+			<input formControlName="email" type="email" name="" required="">
+			<label>Username</label>
+			<small
       *ngIf="!Form.get('email').valid && Form.get('email').touched"
       class="Form-text text-danger "
       text-danger
     >
       Please Enter email</small>
-	</div>
-	<div class="form-group">
-		<label for="exampleInputPassword1">Password</label>
-		<input
-      type="password"
-      class="form-control"
-      formControlName="password"
-      placeholder="Password"
-    />
-		<small
+		</div>
+		<div class="user-box">
+			<input  formControlName="password" type="password" name="" required="">
+			<label>Password</label>
+			<small
       *ngIf="!Form.get('email').valid && Form.get('email').touched"
       class="Form-text text-danger "
     >
       Please Enter password</small>
-	</div>
-
-	<div>
-		<button type="submit" class="btn btn-primary">
+		</div>
+		<div>
+			<button type="submit" class="btn btn-primary">
       {{loginmode?"Sign in":"Sign up"}}
     </button>
-	</div>
+		</div>
 
-	<div>
-		<p>
-			{{ loginmode ?"Don't have Account?":"Already have Account?"}}
-			<a href="#" (click)=" onmodeswitch()">
-           <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-        {{loginmode?"Sign up":"Sign in"}}</a>
-		</p>
+		<div>
+			<p>
+				{{ loginmode ?"Don't have Account?":"Already have Account?"}}
+				<a href="#" (click)=" onmodeswitch()">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
 
-	</div>
+					{{loginmode?"Sign up":"Sign in"}}</a>
+			</p>
 
-</form>
+		</div>
+	</form>
+
+</div>
