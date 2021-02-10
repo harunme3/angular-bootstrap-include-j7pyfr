@@ -14,7 +14,7 @@ import { ErrorService } from "./error.service";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  loginmode: boolean = true;
+  loginmode: boolean = false;
   Form: FormGroup;
 
   constructor(
