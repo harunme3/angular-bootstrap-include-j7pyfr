@@ -22,7 +22,7 @@ INVALID_PASSWORD:"The password is invalid or the user does not have a password",
 USER_DISABLED: "The user account has been disabled by an administrator"<br>
 
 # UI design
-A goog User 👤 Interface design
+A Attractive User 👤 Interface design
 
 
 
