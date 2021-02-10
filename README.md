@@ -27,7 +27,9 @@ A goog User 👤 Interface design
 
 
 
-
+#  live demo 
 [see demo ⚡️](https://angular-bootstrap-include-j7pyfr.stackblitz.io/)
+
+# Edit
 
 [Edit on StackBlitz ⚡️](https://stackblitz.com/edit/angular-bootstrap-include-j7pyfr)
