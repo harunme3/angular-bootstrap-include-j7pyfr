@@ -1,8 +1,9 @@
 <div *ngIf="error" class="alert alert-danger m-3" role="alert">
 	<strong>An error occured</strong>{{error}}
 </div>
-
-<form [formGroup]="Form" (ngSubmit)="onSubmit()">
+<div class="login-box">
+  <h2>	{{ loginmode ?"Sign in":"Sign up"}}</h2>
+<form    [formGroup]="Form" (ngSubmit)="onSubmit()">
 	<div class="form-group">
 		<label for="exampleInputEmail1">Email address</label>
 		<input
@@ -35,14 +36,19 @@
 
 	<div>
 		<button type="submit" class="btn btn-primary">
-      {{loginmode?"Sign in":"Create one"}}
+      {{loginmode?"Sign in":"Sign up"}}
     </button>
 	</div>
 
 	<div>
 		<p>
 			{{ loginmode ?"Don't have Account?":"Already have Account?"}}
-			<a href="#" (click)=" onmodeswitch()">{{loginmode?"Create one":"Sign in"}}</a>
+			<a href="#" (click)=" onmodeswitch()">
+           <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+        {{loginmode?"Sign up":"Sign in"}}</a>
 		</p>
 
 	</div>
